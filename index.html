@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f2efe8">
+<meta name="description" content="The Standard Barber Co. — a concept barbershop website created by Competitive Marketing.">
+<title>The Standard Barber Co. | Good Hair. No Fuss.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f2efe8;
+  --white:#fcfaf5;
+  --ink:#1b1c19;
+  --olive:#68705b;
+  --muted:#6b6d66;
+  --line:#d7d5cb;
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+  line-height:1.6;
+}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+img{display:block;width:100%;object-fit:cover}
+.container{width:min(var(--max),calc(100% - 44px));margin:auto}
+.eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{font-family:Oswald,sans-serif;font-weight:500;text-transform:uppercase}
+h2{font-size:clamp(42px,7vw,88px);line-height:1.03;letter-spacing:-1.5px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:51px;
+  padding:13px 23px;
+  border:1px solid var(--ink);
+  background:var(--ink);
+  color:var(--white);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:.2s ease;
+}
+.btn:hover{background:var(--olive);border-color:var(--olive)}
+.btn-outline{background:transparent;color:var(--ink)}
+.btn-outline:hover{color:white}
+.btn-light{background:var(--white);color:var(--ink);border-color:var(--white)}
+.btn-light:hover{background:#dedbd1;border-color:#dedbd1;color:var(--ink)}
+.section{padding:110px 0}
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:35px;
+  margin-bottom:45px;
+}
+.section-heading h2{margin-bottom:0}
+.section-heading p{max-width:350px;color:var(--muted);font-size:14px}
+.skip{
+  position:absolute;
+  top:-100px;
+  left:15px;
+  background:white;
+  padding:10px;
+  z-index:200;
+}
+.skip:focus{top:10px}
+:focus-visible{outline:3px solid var(--olive);outline-offset:4px}
+
+/* HEADER */
+.topbar{
+  background:var(--ink);
+  color:white;
+  text-align:center;
+  padding:9px 15px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo-mark{
+  width:40px;
+  height:40px;
+  border:2px solid var(--ink);
+  display:grid;
+  place-items:center;
+  font-family:Oswald,sans-serif;
+  font-size:20px;
+  font-weight:600;
+}
+.logo-text{
+  font-family:Oswald,sans-serif;
+  font-size:19px;
+  line-height:1;
+  letter-spacing:.4px;
+}
+.logo-text small{
+  display:block;
+  font-family:"DM Sans",sans-serif;
+  font-size:8px;
+  letter-spacing:2.2px;
+  margin-top:6px;
+}
+.nav-links{display:flex;align-items:center;gap:29px}
+.nav-links a:not(.btn){
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.nav-links a:hover{color:var(--olive)}
+.menu-toggle{
+  display:none;
+  border:0;
+  background:transparent;
+  padding:10px;
+  font-size:24px;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:52% 48%;
+  min-height:680px;
+}
+.hero-copy{
+  padding:85px max(30px,calc((100vw - var(--max))/2)) 85px max(22px,calc((100vw - var(--max))/2));
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hero-copy .eyebrow{color:var(--olive);margin-bottom:25px}
+.hero h1{
+  font-size:clamp(75px,9vw,150px);
+  line-height:.91;
+  letter-spacing:-4px;
+  margin-bottom:29px;
+}
+.hero h1 span{color:var(--olive)}
+.hero-description{
+  max-width:350px;
+  color:var(--muted);
+  font-size:15px;
+  margin-bottom:30px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.hero-image{
+  position:relative;
+  min-height:570px;
+  background:#292a27;
+}
+.hero-image img{height:100%;filter:grayscale(100%)}
+.hero-stamp{
+  position:absolute;
+  right:24px;
+  bottom:24px;
+  background:var(--paper);
+  padding:16px 20px;
+  font-family:Oswald,sans-serif;
+  font-size:15px;
+  letter-spacing:1px;
+}
+.demo-banner{
+  background:#e5e1d7;
+  padding:12px 20px;
+  text-align:center;
+  font-size:11px;
+  color:#55584f;
+}
+.demo-banner strong{color:var(--ink)}
+
+/* INTRO */
+.intro{
+  border-bottom:1px solid var(--line);
+}
+.intro-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.intro h2{max-width:570px}
+.intro-copy{max-width:450px}
+.intro-copy p{color:var(--muted);font-size:15px}
+.intro-copy .signature{
+  font-family:Oswald,sans-serif;
+  font-size:26px;
+  color:var(--ink);
+  margin-top:25px;
+}
+
+/* SERVICES */
+.services{background:var(--white)}
+.service-list{border-top:1px solid var(--line)}
+.service-row{
+  display:grid;
+  grid-template-columns:70px 1fr auto;
+  gap:20px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  padding:27px 0;
+}
+.service-number{font-size:12px;color:var(--olive)}
+.service-row h3{font-size:28px;margin:0 0 4px}
+.service-row p{font-size:13px;color:var(--muted);margin:0}
+.service-price{
+  font-family:Oswald,sans-serif;
+  font-size:29px;
+}
+.service-note{
+  margin-top:22px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* FEATURE */
+.feature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:var(--ink);
+  color:var(--white);
+}
+.feature-photo{min-height:550px}
+.feature-photo img{height:100%;filter:grayscale(100%)}
+.feature-copy{
+  padding:80px clamp(25px,7vw,110px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.feature-copy .eyebrow{color:#b9c0a7}
+.feature-copy h2{margin:20px 0 25px}
+.feature-copy p{max-width:430px;color:#c2c2bb;font-size:15px}
+.feature-copy .btn{align-self:flex-start;margin-top:20px}
+
+/* TEAM */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.team-card img{
+  height:390px;
+  filter:grayscale(100%);
+  background:#d5d2ca;
+}
+.team-card h3{
+  font-size:28px;
+  margin:16px 0 2px;
+}
+.team-card p{font-size:12px;color:var(--muted);margin:0}
+
+/* GALLERY */
+.gallery{background:var(--white)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr 1fr;
+  gap:12px;
+}
+.gallery-grid img{
+  height:360px;
+  filter:grayscale(100%);
+  background:#d5d2ca;
+}
+
+/* REVIEW */
+.quote-section{
+  padding:110px 0;
+  background:#e5e7dc;
+  text-align:center;
+}
+.quote-section blockquote{
+  max-width:830px;
+  margin:25px auto;
+  font-family:Oswald,sans-serif;
+  font-size:clamp(29px,5vw,55px);
+  font-weight:400;
+  line-height:1.3;
+  text-transform:uppercase;
+}
+.quote-section p{font-size:12px;color:var(--muted)}
+
+/* FAQ */
+.faq{background:var(--paper)}
+.faq-grid{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:80px;
+}
+.faq h2{margin-bottom:15px}
+.faq-intro{color:var(--muted);font-size:14px;max-width:300px}
+details{border-bottom:1px solid var(--line);padding:21px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{
+  cursor:pointer;
+  font-weight:700;
+  font-size:14px;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;font-weight:400}
+details[open] summary::after{content:"−"}
+details p{
+  color:var(--muted);
+  font-size:13px;
+  margin:15px 30px 0 0;
+}
+
+/* CONTACT */
+.contact{
+  background:var(--ink);
+  color:var(--white);
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:90px;
+}
+.contact h2{margin:15px 0 25px}
+.contact p{color:#c1c1ba;font-size:14px}
+.contact-info{margin-top:35px}
+.contact-info strong{
+  display:block;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+.contact-info p{margin-bottom:25px}
+.contact form{
+  padding:35px;
+  border:1px solid #454640;
+}
+.contact form h3{font-size:28px;margin-bottom:5px}
+.contact form>p{font-size:12px;margin-bottom:25px}
+.field{margin-bottom:17px}
+.field label{
+  display:block;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:7px;
+}
+.field input,.field textarea{
+  width:100%;
+  padding:13px;
+  background:#2b2c28;
+  color:white;
+  border:1px solid #50514a;
+  border-radius:0;
+}
+.field textarea{min-height:100px;resize:vertical}
+.field input:focus,.field textarea:focus{
+  outline:2px solid #b9c0a7;
+  outline-offset:2px;
+}
+.form-message{font-size:12px;margin-top:15px;min-height:20px}
+
+/* FOOTER */
+footer{
+  background:#11120f;
+  color:white;
+  padding:45px 0 25px;
+}
+.footer-main{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+  padding-bottom:35px;
+  border-bottom:1px solid #353630;
+}
+.footer-title{
+  font-family:Oswald,sans-serif;
+  font-size:35px;
+  line-height:1;
+}
+.footer-main p{font-size:11px;color:#a4a59e;margin:10px 0 0}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding-top:23px;
+  color:#92938c;
+  font-size:10px;
+}
+.footer-bottom a{text-decoration:underline}
+.mobile-book{display:none}
+
+@media(max-width:1050px){
+  .nav-links{gap:16px}
+  .hero h1{font-size:clamp(65px,9vw,110px)}
+  .hero-copy{padding:65px 35px}
+  .team-card img{height:310px}
+}
+@media(max-width:760px){
+  .container{width:calc(100% - 36px)}
+  .section{padding:75px 0}
+  h2{font-size:clamp(42px,11vw,65px)}
+  .topbar{font-size:9px}
+  .nav{min-height:68px}
+  .menu-toggle{display:block}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--paper);
+    padding:20px;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a:not(.btn){padding:14px 0}
+  .nav-links .btn{margin-top:10px}
+  .hero{grid-template-columns:1fr}
+  .hero-copy{padding:65px 22px 55px}
+  .hero h1{font-size:clamp(75px,17vw,125px)}
+  .hero-image{min-height:440px;height:55vh;max-height:650px}
+  .section-heading{display:block}
+  .section-heading p{margin-top:20px}
+  .intro-grid,.feature,.faq-grid,.contact-grid{grid-template-columns:1fr;gap:30px}
+  .feature-photo{min-height:390px;height:450px}
+  .feature-copy{padding:65px 22px}
+  .team-grid{grid-template-columns:1fr 1fr;gap:15px}
+  .team-card img{height:280px}
+  .team-card h3{font-size:23px}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid img{height:260px}
+  .gallery-grid img:first-child{grid-column:1/-1;height:340px}
+  .contact form{padding:22px}
+  .footer-main,.footer-bottom{flex-direction:column;align-items:flex-start}
+  .mobile-book{
+    display:flex;
+    position:fixed;
+    z-index:90;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:10px 15px calc(10px + env(safe-area-inset-bottom));
+    background:var(--paper);
+    border-top:1px solid var(--line);
+  }
+  .mobile-book .btn{width:100%}
+  footer{padding-bottom:95px}
+}
+@media(max-width:420px){
+  .hero h1{font-size:70px}
+  .service-row{grid-template-columns:35px 1fr auto;gap:10px}
+  .service-row h3{font-size:23px}
+  .service-price{font-size:24px}
+  .team-grid{grid-template-columns:1fr}
+  .team-card img{height:370px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<div class="topbar">
+  A BETTER CUT STARTS HERE — DEMONSTRATION WEBSITE
+</div>
+
+<header>
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="#home" class="logo" aria-label="The Standard Barber Co. home">
+      <span class="logo-mark">S.</span>
+      <span class="logo-text">
+        THE STANDARD
+        <small>BARBER CO.</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="nav-links">☰</button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="#about">The Shop</a>
+      <a href="#services">Services</a>
+      <a href="#team">The Barbers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact" class="btn">Book Your Cut ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <div class="eyebrow">Independent Barbering / Est. 2024 — Concept Brand</div>
+
+    <h1>
+      GOOD<br>
+      HAIR.<br>
+      <span>NO FUSS.</span>
+    </h1>
+
+    <p class="hero-description">
+      Proper cuts. Good conversation. No unnecessary extras.
+      Just a neighbourhood barbershop that takes its craft seriously.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn">Book Your Cut ↗</a>
+      <a href="#services" class="btn btn-outline">View Services</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img
+      src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=85"
+      alt="Traditional barbershop interior"
+      fetchpriority="high">
+    <div class="hero-stamp">CUT WITH PURPOSE. / 001</div>
+  </div>
+</section>
+
+<div class="demo-banner">
+  <strong>PORTFOLIO CONCEPT</strong> — Fictional business and sample content.
+  Created to demonstrate a custom barbershop website.
+</div>
+
+<section class="section intro" id="about">
+  <div class="container intro-grid">
+    <div>
+      <div class="eyebrow">01 / Who We Are</div>
+      <h2>OLD SCHOOL VALUES. NEW SCHOOL CUTS.</h2>
+    </div>
+
+    <div class="intro-copy">
+      <p>
+        We like our coffee strong, our conversations honest,
+        and our haircuts done properly.
+      </p>
+      <p>
+        The Standard is built around a simple idea:
+        show up, feel welcome, leave looking sharp.
+      </p>
+      <p>
+        Whether you're after a clean fade, a classic scissor cut
+        or a tidy-up before the weekend, we've got a chair for you.
+      </p>
+      <div class="signature">TAKE A SEAT. YOU'RE IN GOOD HANDS.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">02 / The Menu</div>
+        <h2>THE USUAL.<br>DONE RIGHT.</h2>
+      </div>
+      <p>
+        Straightforward services. No confusing extras.
+        Just a good cut at a fair price.
+      </p>
+    </div>
+
+    <div class="service-list">
+      <div class="service-row">
+        <span class="service-number">01</span>
+        <div>
+          <h3>THE CLASSIC CUT</h3>
+          <p>Consultation, tailored cut and style.</p>
+        </div>
+        <div class="service-price">$45</div>
+      </div>
+
+      <div class="service-row">
+        <span class="service-number">02</span>
+        <div>
+          <h3>SKIN FADE</h3>
+          <p>Clean, detailed fade with a sharp finish.</p>
+        </div>
+        <div class="service-price">$55</div>
+      </div>
+
+      <div class="service-row">
+        <span class="service-number">03</span>
+        <div>
+          <h3>BEARD WORK</h3>
+          <p>Beard shaping, line-up and tidy finish.</p>
+        </div>
+        <div class="service-price">$30</div>
+      </div>
+
+      <div class="service-row">
+        <span class="service-number">04</span>
+        <div>
+          <h3>THE FULL SERVICE</h3>
+          <p>Haircut, beard trim and complete styling.</p>
+        </div>
+        <div class="service-price">$70</div>
+      </div>
+
+      <div class="service-row">
+        <span class="service-number">05</span>
+        <div>
+          <h3>THE QUICK TIDY</h3>
+          <p>Neckline, edges and a freshen-up.</p>
+        </div>
+        <div class="service-price">$25</div>
+      </div>
+    </div>
+
+    <p class="service-note">
+      * All prices are fictional examples for this demonstration.
+      Actual pricing will be customised for each business.
+    </p>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-photo">
+    <img
+      src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=85"
+      alt="Barber carefully cutting a client's hair"
+      loading="lazy">
+  </div>
+
+  <div class="feature-copy">
+    <div class="eyebrow">More Than A Haircut</div>
+    <h2>YOUR CHAIR.<br>YOUR TIME.</h2>
+    <p>
+      Life moves fast enough. Your time in the chair shouldn't.
+    </p>
+    <p>
+      We take the time to understand what you're after,
+      pay attention to the details, and make sure you're
+      happy before you walk out.
+    </p>
+    <a href="#contact" class="btn btn-light">Take A Seat ↗</a>
+  </div>
+</section>
+
+<section class="section" id="team">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">03 / The People</div>
+        <h2>MEET THE CREW.</h2>
+      </div>
+      <p>
+        Good barbers. Good people.
+        The faces behind the chairs.
+      </p>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <img
+          src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=85"
+          alt="Example barber portfolio photograph"
+          loading="lazy">
+        <h3>JACK MORGAN</h3>
+        <p>Founder / Senior Barber — Fictional profile</p>
+      </article>
+
+      <article class="team-card">
+        <img
+          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=85"
+          alt="Example barbershop photograph"
+          loading="lazy">
+        <h3>LUCA BENNETT</h3>
+        <p>Barber / Fade Specialist — Fictional profile</p>
+      </article>
+
+      <article class="team-card">
+        <img
+          src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=85"
+          alt="Example barbering photograph"
+          loading="lazy">
+        <h3>NOAH REED</h3>
+        <p>Barber / Classic Cuts — Fictional profile</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">04 / From The Chair</div>
+        <h2>THE WORK SPEAKS.</h2>
+      </div>
+      <p>
+        A glimpse into the shop, the craft and the details.
+        Example photography for this concept.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <img
+        src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1000&q=85"
+        alt="Barbering in progress"
+        loading="lazy">
+      <img
+        src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=85"
+        alt="Barbering tools and workspace"
+        loading="lazy">
+      <img
+        src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85"
+        alt="Barbershop interior"
+        loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="container">
+    <div class="eyebrow">The Standard Philosophy</div>
+    <blockquote>
+      "A GOOD HAIRCUT SHOULDN'T BE COMPLICATED.
+      IT SHOULD JUST BE GOOD."
+    </blockquote>
+    <p>BRAND STATEMENT — NOT A CUSTOMER REVIEW</p>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="container faq-grid">
+    <div>
+      <div class="eyebrow">05 / Good To Know</div>
+      <h2>QUESTIONS?<br>SORTED.</h2>
+      <p class="faq-intro">
+        A few things worth knowing before you pull up a chair.
+        These policies are examples for the demo.
+      </p>
+    </div>
+
+    <div>
+      <details>
+        <summary>Do I need to book ahead?</summary>
+        <p>
+          Booking ahead is recommended to secure your preferred time.
+          Walk-in availability depends on the day.
+        </p>
+      </details>
+
+      <details>
+        <summary>How long does a haircut take?</summary>
+        <p>
+          Most standard cuts take around 30–45 minutes.
+          Detailed fades and combined services may take longer.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I choose my barber?</summary>
+        <p>
+          Absolutely. Select your preferred barber when booking,
+          subject to availability.
+        </p>
+      </details>
+
+      <details>
+        <summary>What if I need to cancel?</summary>
+        <p>
+          Please give as much notice as possible.
+          Cancellation terms will be confirmed by the actual business.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you take card payments?</summary>
+        <p>
+          Payment methods will be confirmed when this concept
+          is customised for a real barbershop.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">06 / Come Through</div>
+      <h2>YOUR NEXT CUT<br>STARTS HERE.</h2>
+
+      <p>
+        Fresh cut, familiar faces, good atmosphere.
+        We'll save you a chair.
+      </p>
+
+      <div class="contact-info">
+        <strong>Location</strong>
+        <p>Location to be added for the real business.</p>
+
+        <strong>Opening Hours — Example Only</strong>
+        <p>
+          Monday – Friday: 9:00 am – 6:00 pm<br>
+          Saturday: 9:00 am – 3:00 pm<br>
+          Sunday: Closed
+        </p>
+
+        <strong>Get In Touch</strong>
+        <p>
+          Phone and email to be connected before launch.
+        </p>
+      </div>
+    </div>
+
+    <form id="booking-form" novalidate>
+      <h3>REQUEST A CHAIR.</h3>
+      <p>
+        Demo booking enquiry form. No appointment will be made
+        or information submitted.
+      </p>
+
+      <div class="field">
+        <label for="name">Your Name</label>
+        <input id="name" name="name" type="text"
+          autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email"
+          autocomplete="email" required>
+      </div>
+
+      <div class="field">
+        <label for="service">Preferred Service</label>
+        <input id="service" name="service" type="text"
+          placeholder="e.g. Classic Cut">
+      </div>
+
+      <div class="field">
+        <label for="message">Anything Else?</label>
+        <textarea id="message" name="message"
+          placeholder="Preferred day, time or barber"></textarea>
+      </div>
+
+      <button class="btn btn-light" type="submit">
+        Preview Enquiry ↗
+      </button>
+
+      <div id="form-message" class="form-message"
+        role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div>
+        <div class="footer-title">THE STANDARD.</div>
+        <p>GOOD HAIR. NO FUSS.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> THE STANDARD BARBER CO. — FICTIONAL DEMO BRAND</span>
+      <span>
+        WEBSITE CONCEPT BY
+        <a href="https://competitivemarketing.github.io/"
+          target="_blank" rel="noopener noreferrer">
+          COMPETITIVE MARKETING
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-book">
+  <a href="#contact" class="btn">BOOK YOUR CUT ↗</a>
+</div>
+
+<script>
+const menuButton=document.querySelector(".menu-toggle");
+const navLinks=document.querySelector(".nav-links");
+
+function closeMenu(){
+  navLinks.classList.remove("open");
+  menuButton.setAttribute("aria-expanded","false");
+  menuButton.setAttribute("aria-label","Open navigation");
+  document.body.classList.remove("menu-open");
+}
+
+menuButton.addEventListener("click",()=>{
+  const isOpen=navLinks.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded",String(isOpen));
+  menuButton.setAttribute(
+    "aria-label",
+    isOpen?"Close navigation":"Open navigation"
+  );
+  document.body.classList.toggle("menu-open",isOpen);
+});
+
+navLinks.querySelectorAll("a").forEach(link=>{
+  link.addEventListener("click",closeMenu);
+});
+
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape") closeMenu();
+});
+
+document.getElementById("year").textContent=
+  new Date().getFullYear();
+
+const form=document.getElementById("booking-form");
+const formMessage=document.getElementById("form-message");
+
+form.addEventListener("submit",event=>{
+  event.preventDefault();
+
+  if(!form.checkValidity()){
+    formMessage.textContent=
+      "Please enter your name and a valid email address.";
+    form.reportValidity();
+    return;
+  }
+
+  formMessage.textContent=
+    "Demo only — your enquiry has not been sent. " +
+    "A real booking or enquiry system will be connected " +
+    "when this website is customised for a client.";
+});
+</script>
+</body>
+</html>
